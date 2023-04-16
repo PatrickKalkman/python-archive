@@ -1,5 +1,6 @@
 import zipfile
 
+
 def print_metadata(file_info):
     file_name = file_info.filename
     file_size = file_info.file_size
@@ -16,12 +17,14 @@ def print_metadata(file_info):
     print(f"Last Modified: {l_mod_date} {l_mod_time}")
     print(f"Compression Ratio: {compression_ratio:.2%}\n")
 
+
 def main():
     # Open the ZIP archive in read mode
     with zipfile.ZipFile('meta.zip', 'r') as zip_file:
         # Iterate through the files in the archive
         for file_info in zip_file.infolist():
             print_metadata(file_info)
+
 
 if __name__ == "__main__":
     main()
